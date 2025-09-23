@@ -1,0 +1,63 @@
+﻿using Mars_Project.Pages;
+using Mars_Project.Utilities;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using Reqnroll;
+
+namespace Mars_Project.StepDefinition
+{
+    [Binding]
+    public class LanguageSteps : CommonDriver
+    {
+        private readonly ProfileLanguage profileLanguage;
+
+        public LanguageSteps()
+        {
+            profileLanguage = new ProfileLanguage();
+        }
+
+        [Given("I am logged into the application for languages")]
+        public void GivenIAmLoggedIn()
+        {
+            //driver = new ChromeDriver();
+            // Already handled in Setup()
+        }
+
+        [When("I add a new language {string} with level {string}")]
+        public void WhenIAddANewLanguageWithLevel(string language,string level)
+        {
+            profileLanguage.AddLanguage(driver,language, level);
+        }
+
+        [When("I edit a language")]
+        public void WhenIEditLanguage()
+        {
+            profileLanguage.EditLanguage(Hooks.Hooks.Driver);
+        }
+
+        [When("I delete a language")]
+        public void WhenIDeleteLanguage()
+        {
+            profileLanguage.DeleteLanguage(Hooks.Hooks.Driver);
+        }
+
+        [When("I Cancel a language")]
+        public void WhenICancelLanguage()
+        {
+            profileLanguage.CancelLanguage(Hooks.Hooks.Driver);
+        }
+
+        [Then("the language should be added successfully")]
+        [Then("the language should be updated successfully")]
+        [Then("the language should be removed successfully")]
+        [Then("the language should not be updated successfully")]
+
+        public void ThenVerifyLanguageAction()
+        {
+            // Already handled inside Page Object methods
+        }
+
+       
+    }
+}
