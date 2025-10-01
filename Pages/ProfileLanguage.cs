@@ -20,11 +20,30 @@ namespace Mars_Project.Pages
 			selectElement.SelectByText(level);
 			IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
 			addButton.Click();
-            Wait.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 5);
-            IWebElement toastMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-			Assert.That(toastMessage.Text.Contains("added"), Is.True, "Language has not been added");
+			//Thread.Sleep(3000);
+   //         Wait.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 5);
+   //         IWebElement toastMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+			//Assert.That(toastMessage.Text.Contains("added"), Is.True, "Language has not been added");
         }
-		public void EditLanguage(IWebDriver driver)
+
+		public string GetToastMessage(IWebDriver driver)
+		{
+			try
+			{
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+                IWebElement toast = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='ns-box-inner']")));
+                return toast.Text;
+
+            }
+            catch (NoSuchElementException)
+            {
+                return string.Empty;
+            }
+
+              return string.Empty;
+            }
+
+        public void EditLanguage(IWebDriver driver)
 		{
 			IWebElement rowText = driver.FindElement(By.XPath("//td[text()='English']"));
             IWebElement editButton = driver.FindElement(By.XPath("//tr[td[text()='English']]//i[contains(@class,'write')]"));
