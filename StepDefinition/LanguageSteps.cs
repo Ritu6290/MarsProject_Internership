@@ -8,7 +8,7 @@ using Reqnroll;
 namespace Mars_Project.StepDefinition
 {
     [Binding]
-    public class LanguageSteps : CommonDriver
+    public class LanguageSteps 
     {
         private readonly ProfileLanguage profileLanguage;
 
@@ -20,14 +20,22 @@ namespace Mars_Project.StepDefinition
         [Given("I am logged into the application for languages")]
         public void GivenIAmLoggedIn()
         {
-            //driver = new ChromeDriver();
             // Already handled in Setup()
         }
 
         [When("I add a new language {string} with level {string}")]
         public void WhenIAddANewLanguageWithLevel(string language,string level)
         {
-            profileLanguage.AddLanguage(driver,language, level);
+            profileLanguage.AddLanguage(Hooks.Hooks.Driver,language, level);
+        }
+
+        [Then("I should see {string}")]
+        public void ThenIShouldSee(string expectedMessage)
+        {
+            string actualMessage = profileLanguage.GetToastMessage(Hooks.Hooks.Driver);
+            Console.WriteLine($"DEBUG: Expected='{expectedMessage}', Actual='{actualMessage}'");
+            Assert.That(actualMessage.Contains(expectedMessage),
+                $"Expected '{expectedMessage}' but got '{actualMessage}'");
         }
 
         [When("I edit a language")]
