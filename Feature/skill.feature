@@ -12,9 +12,12 @@ Examples:
       | skill      | level          | expectedMessage                              |
       | C#         | Beginner       | added                                        |
       | Java       | Intermediate   | added                                        |
+      |            | Intermediate   | Please enter                                 |
+      | Testing    |                | Please enter                                 |
       | C#         | Beginner       | This skill is already exist in your skill list. |
-      | @@@@       | Expert         | added                          |#invalid characters still gets added its a bug
-      | 12345      | Intermediate   | added                          |#invalid characters still gets added its a bug 
+      | Java       | Basic          | Duplicated data                               |
+      | @@@@       | Expert         | added                                         |#invalid characters still gets added its a bug
+      | 12345      | Intermediate   | added                                         |#invalid characters still gets added its a bug 
       | SkillWithAnExtremelyLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName | Beginner | added | # Invalid too long character but still gets added
 
   Scenario: 2. Edit an existing skill

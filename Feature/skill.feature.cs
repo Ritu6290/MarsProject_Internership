@@ -106,18 +106,21 @@ namespace Mars_Project.Feature
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Feature/skill.feature", 11);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Feature/skill.feature", 14);
         }
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("1. Add a new skill")]
         [global::NUnit.Framework.TestCaseAttribute("C#", "Beginner", "added", "0", null)]
         [global::NUnit.Framework.TestCaseAttribute("Java", "Intermediate", "added", "1", null)]
-        [global::NUnit.Framework.TestCaseAttribute("C#", "Beginner", "This skill is already exist in your skill list.", "2", null)]
-        [global::NUnit.Framework.TestCaseAttribute("@@@@", "Expert", "added", "3", null)]
-        [global::NUnit.Framework.TestCaseAttribute("12345", "Intermediate", "added", "4", null)]
+        [global::NUnit.Framework.TestCaseAttribute("", "Intermediate", "Please enter", "2", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Testing", "", "Please enter", "3", null)]
+        [global::NUnit.Framework.TestCaseAttribute("C#", "Beginner", "This skill is already exist in your skill list.", "4", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Java", "Basic", "Duplicated data", "5", null)]
+        [global::NUnit.Framework.TestCaseAttribute("@@@@", "Expert", "added", "6", null)]
+        [global::NUnit.Framework.TestCaseAttribute("12345", "Intermediate", "added", "7", null)]
         [global::NUnit.Framework.TestCaseAttribute("SkillWithAnExtremelyLoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
-            "ooongName", "Beginner", "added", "5", null)]
+            "ooongName", "Beginner", "added", "8", null)]
         public async global::System.Threading.Tasks.Task _1_AddANewSkill(string skill, string level, string expectedMessage, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -158,11 +161,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "6";
+            string pickleIndex = "9";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("2. Edit an existing skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 20
+#line 23
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -172,13 +175,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 21
+#line 24
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 25
     await testRunner.WhenAsync("I edit a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 26
     await testRunner.ThenAsync("the skill should be updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -191,11 +194,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "7";
+            string pickleIndex = "10";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("3. Delete a skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 25
+#line 28
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -205,13 +208,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 26
+#line 29
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 27
+#line 30
     await testRunner.WhenAsync("I delete a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 31
     await testRunner.ThenAsync("the skill should be removed successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -224,11 +227,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "8";
+            string pickleIndex = "11";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("4. Cancel a skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 30
+#line 33
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -238,13 +241,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 31
+#line 34
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 35
     await testRunner.WhenAsync("I cancel a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 36
     await testRunner.ThenAsync("the skill should not be updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
