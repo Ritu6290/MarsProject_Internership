@@ -23,10 +23,16 @@ namespace Mars_Project.StepDefinition
             //already handeled in setup
         }
 
-        [When("I add a new skill")]
-        public void WhenIAddSkill()
+        [When(@"I add a new skill {string} with level {string}")]
+        public void WhenIAddANewSkillWithLevel(string skill, string level)
         {
-            profileSkill.AddSkill(Hooks.Hooks.Driver); // Validation inside method
+            profileSkill.AddSkill(Hooks.Hooks.Driver, skill, level);
+        }
+
+        [Then(@"I should see {string} in skill tab")]
+        public void ThenIShouldSeeInSkillTab(string expectedMessage)
+        {
+            profileSkill.ValidateToastMessage(Hooks.Hooks.Driver, expectedMessage);
         }
 
         [When("I edit a skill")]
