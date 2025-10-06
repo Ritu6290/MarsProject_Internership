@@ -120,7 +120,7 @@ namespace Mars_Project.Feature
         [global::NUnit.Framework.TestCaseAttribute("@@@@", "Expert", "added", "6", null)]
         [global::NUnit.Framework.TestCaseAttribute("12345", "Intermediate", "added", "7", null)]
         [global::NUnit.Framework.TestCaseAttribute("SkillWithAnExtremelyLoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
-            "ooongName", "Beginner", "added", "8", null)]
+            "ooongName with extra character", "Beginner", "added", "8", null)]
         public async global::System.Threading.Tasks.Task _1_AddANewSkill(string skill, string level, string expectedMessage, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

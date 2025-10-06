@@ -18,7 +18,7 @@ Examples:
       | Java       | Basic          | Duplicated data                               |
       | @@@@       | Expert         | added                                         |#invalid characters still gets added its a bug
       | 12345      | Intermediate   | added                                         |#invalid characters still gets added its a bug 
-      | SkillWithAnExtremelyLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName | Beginner | added | # Invalid too long character but still gets added
+      | SkillWithAnExtremelyLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName with extra character| Beginner | added | # Invalid too long character but still gets added
 
   Scenario: 2. Edit an existing skill
     Given I am logged into the application for skills

@@ -118,7 +118,8 @@ namespace Mars_Project.Feature
         [global::NUnit.Framework.TestCaseAttribute("English", "Basic", "This language is already exist in your language list.", "4", null)]
         [global::NUnit.Framework.TestCaseAttribute("English", "Conversational", "Duplicated data", "5", null)]
         [global::NUnit.Framework.TestCaseAttribute("@@1232424@", "Basic", "added", "6", null)]
-        [global::NUnit.Framework.TestCaseAttribute("LooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName", "Conversational", "added", "7", null)]
+        [global::NUnit.Framework.TestCaseAttribute("LooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName wi" +
+            "th extra character", "Conversational", "added", "7", null)]
         public async global::System.Threading.Tasks.Task _1_AddLanguageValidation(string language, string level, string expectedMessage, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
