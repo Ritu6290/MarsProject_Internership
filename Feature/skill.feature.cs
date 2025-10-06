@@ -106,21 +106,31 @@ namespace Mars_Project.Feature
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Feature/skill.feature", 6);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Feature/skill.feature", 11);
         }
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("1. Add a new skill")]
-        public async global::System.Threading.Tasks.Task _1_AddANewSkill()
+        [global::NUnit.Framework.TestCaseAttribute("C#", "Beginner", "added", "0", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Java", "Intermediate", "added", "1", null)]
+        [global::NUnit.Framework.TestCaseAttribute("C#", "Beginner", "This skill is already exist in your skill list.", "2", null)]
+        [global::NUnit.Framework.TestCaseAttribute("@@@@", "Expert", "added", "3", null)]
+        [global::NUnit.Framework.TestCaseAttribute("12345", "Intermediate", "added", "4", null)]
+        [global::NUnit.Framework.TestCaseAttribute("SkillWithAnExtremelyLoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
+            "ooongName", "Beginner", "added", "5", null)]
+        public async global::System.Threading.Tasks.Task _1_AddANewSkill(string skill, string level, string expectedMessage, string @__pickleIndex, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "0";
+            argumentsOfScenario.Add("skill", skill);
+            argumentsOfScenario.Add("level", level);
+            argumentsOfScenario.Add("expectedMessage", expectedMessage);
+            string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("1. Add a new skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 6
-  this.ScenarioInitialize(scenarioInfo, ruleInfo);
+   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -133,10 +143,10 @@ namespace Mars_Project.Feature
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
-    await testRunner.WhenAsync("I add a new skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync(string.Format("I add a new skill \"{0}\" with level \"{1}\"", skill, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
-    await testRunner.ThenAsync("the skill should be added successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync(string.Format("I should see \"{0}\" in skill tab", expectedMessage), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -148,11 +158,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "1";
+            string pickleIndex = "6";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("2. Edit an existing skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 11
+#line 20
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -162,13 +172,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 12
+#line 21
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 22
     await testRunner.WhenAsync("I edit a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 23
     await testRunner.ThenAsync("the skill should be updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -181,11 +191,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "2";
+            string pickleIndex = "7";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("3. Delete a skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 16
+#line 25
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -195,13 +205,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 17
+#line 26
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 18
+#line 27
     await testRunner.WhenAsync("I delete a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 28
     await testRunner.ThenAsync("the skill should be removed successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -214,11 +224,11 @@ namespace Mars_Project.Feature
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "3";
+            string pickleIndex = "8";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("4. Cancel a skill", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 21
+#line 30
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -228,13 +238,13 @@ namespace Mars_Project.Feature
             else
             {
                 await this.ScenarioStartAsync();
-#line 22
+#line 31
     await testRunner.GivenAsync("I am logged into the application for skills", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 32
     await testRunner.WhenAsync("I cancel a skill", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 33
     await testRunner.ThenAsync("the skill should not be updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
