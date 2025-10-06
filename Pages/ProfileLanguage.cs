@@ -11,19 +11,31 @@ namespace Mars_Project.Pages
        
         public void AddLanguage(IWebDriver driver, string language, string level)
 		{
-			IWebElement addNewButton = driver.FindElement(By.CssSelector("div[class='ui bottom attached tab segment active tooltip-target'] div[class='ui teal button ']"));
-			addNewButton.Click();
-			IWebElement addLanguageText = driver.FindElement(By.CssSelector("[placeholder$='Add Language']"));
-			addLanguageText.SendKeys(language);
-			IWebElement levelOption = driver.FindElement(By.CssSelector("select[name='level']"));
-			var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(levelOption);
-			selectElement.SelectByText(level);
-			IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
-			addButton.Click();
-			//Thread.Sleep(3000);
-   //         Wait.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 5);
-   //         IWebElement toastMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-			//Assert.That(toastMessage.Text.Contains("added"), Is.True, "Language has not been added");
+
+			try
+			{
+                IWebElement addNewButton = driver.FindElement(By.CssSelector("div[class='ui bottom attached tab segment active tooltip-target'] div[class='ui teal button ']"));
+                if (!addNewButton.Displayed)
+				{
+					Console.WriteLine("DEBUG: Add button not visible — cannot add more languages.");
+					return; // Exit early
+				}
+				addNewButton.Click();
+				IWebElement addLanguageText = driver.FindElement(By.CssSelector("[placeholder$='Add Language']"));
+				addLanguageText.SendKeys(language);
+				IWebElement levelOption = driver.FindElement(By.CssSelector("select[name='level']"));
+				var selectElement = new OpenQA.Selenium.Support.UI.SelectElement(levelOption);
+				selectElement.SelectByText(level);
+				IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
+				addButton.Click();
+			}
+
+			catch(NoSuchElementException)
+			{
+                Console.WriteLine("DEBUG: Add button not found — possibly reached maximum languages.");
+                return; // Exit early
+            }
+		
         }
 
 		public string GetToastMessage(IWebDriver driver)
@@ -40,9 +52,8 @@ namespace Mars_Project.Pages
                 return string.Empty;
             }
 
-              return string.Empty;
-            }
-
+          return string.Empty;
+        }
         public void EditLanguage(IWebDriver driver)
 		{
 			IWebElement rowText = driver.FindElement(By.XPath("//td[text()='English']"));

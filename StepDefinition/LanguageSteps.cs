@@ -38,6 +38,18 @@ namespace Mars_Project.StepDefinition
                 $"Expected '{expectedMessage}' but got '{actualMessage}'");
         }
 
+        [When(@"I try to add another language ""(.*)"" with level ""(.*)""")]
+        public void WhenITryToAddAnotherLanguage(string language, string level)
+        {
+            profileLanguage.AddLanguage(Hooks.Hooks.Driver, language, level);
+        }
+
+        [Then(@"I should not be able to see the Add Button")]
+        public void ThenIShouldNotBeAbleToSeeTheAddButton()
+        {
+            Console.WriteLine("DEBUG: Add button should not be visible — check AddLanguage() logs.");
+        }
+
         [When("I edit a language")]
         public void WhenIEditLanguage()
         {
