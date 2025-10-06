@@ -17,7 +17,7 @@ Examples:
     | English    | Basic            | This language is already exist in your language list.|
     | English    | Conversational   | Duplicated data                   |
     | @@1232424@ | Basic            | added                             |# invalid character should fail but language gets added
-    | LooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName| Conversational   | added | # invalid character should fail but language gets added
+    | LooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongName with extra character| Conversational   | added | # invalid character should fail but language gets added
   
  Scenario: 2. Maximum of 4 language
   Given I am logged into the application for languages
